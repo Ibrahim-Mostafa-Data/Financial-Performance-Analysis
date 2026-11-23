@@ -129,4 +129,4 @@ I worked on this dataset end-to-end: data exploration and Python cleaning (`Fina
 ---
 
 ### 👤 Created By:
-**إبراهيم مصطفى** — *Junior Data Analyst & BI Analyst* · [LinkedIn](add-your-link)
+**Ebrahim Mostafa** — *Junior Data Analyst & BI Analyst* · [LinkedIn](www.linkedin.com/in/ebrahim-mostafa-data-analysis)
