@@ -8,7 +8,7 @@
 
 ---
 
-An end-to-end corporate financial analytics project (**Financial-Performance-Analysis**) built on **200+ Financial Indicators of US Stocks (2014–2018)** from Kaggle, covering companies across diverse sectors to deliver executive-ready insights across profitability, liquidity, capital structure, and cash flow.
+An end-to-end corporate financial analytics project (**Financial-Performance-Analysis**) built on **200+ Financial Indicators of US Stocks (2014–2018)** from Kaggle, covering **4,980 companies across 11 sectors** to deliver executive-ready insights on profitability, liquidity, capital structure, and cash flow.
 
 I worked on this dataset end-to-end: data exploration and Python cleaning (`Financial Analyst.ipynb`), Power BI data modeling and DAX engineering, and finally custom HTML/CSS/SVG visuals in an interactive multi-page financial report.
 
@@ -48,7 +48,7 @@ I worked on this dataset end-to-end: data exploration and Python cleaning (`Fina
 
 #### 📈 Overview
 ![Overview](Overview.png)
-- Executive summary with slicers (`Year`, `Sector`, `Company`, `Class`), KPI cards (`Total Revenue`, `Net Income`, `EBITDA`, `Net Profit Margin`, `Return on Assets`, `Total Assets`) with prior-year comparisons, **Revenue Trend Over Time**, **Top Companies by Revenue**, **Top Companies by Net Income**, **Revenue Contribution by Sector**, and **Revenue vs Net Income**.
+- Executive summary with slicers (`Year`, `Sector`, `Company`, `Class`), KPI cards (`Total Revenue`, `Net Income`, `EBITDA`, `Net Profit Margin`, `Return on Assets`, `Total Assets`), **Revenue Trend Over Time**, **Top Companies by Revenue**, **Top Companies by Net Income**, **Revenue Contribution by Sector**, and **Revenue vs Net Income**.
 
 #### 📊 Profitability
 ![Profitability](Profitability.png)
@@ -71,23 +71,26 @@ I worked on this dataset end-to-end: data exploration and Python cleaning (`Fina
 ## 🧩 How the Custom Visuals Work
 - Every card and chart is a **DAX measure that returns an HTML/CSS/SVG string**, rendered by Power BI's **HTML Content** visual. Charts (line, bar, column, scatter, treemap, waterfall, donut, heatmap) are drawn from scratch with SVG and CSS.
 - Animations and hover tooltips use **pure CSS**, since the visual does not execute JavaScript.
-- Cards follow the report filters: they show the selected period versus the previous year, and on "All" they aggregate all years.
+- **Filtering:** cards and charts read **all years (2014–2018) by default** and show the period on the card; selecting a single year in the Year slicer shows that year with a previous-year comparison.
 - **Limitation:** HTML visuals do not cross-filter other visuals, so interactivity comes from the slicers.
 
 ---
 
-## 🔎 Key Findings (All years, 2014–2018)
-- **Revenue** totals **95.23T** with **7.12T** net income (**7.48%** net profit margin). Yearly revenue dipped in 2015 (17.4T) and reached **21.5T** in 2018.
-- **Cash:** operating cash flow totals **17.32T**; investing outflows (−12.67T) and financing outflows (−1.16T) leave a net cash change of **+3.49T**. Free cash flow (**8.68T**) is about half of operating cash flow.
-- **Top net income:** AAPL (246.47B), JPM (118.84B), and WFC (112.47B) lead the company ranking.
-- **Sector margins:** Real Estate and Financial Services lead operating margins (around 20%+), while Energy is the only sector with a negative operating margin (−1.8% in 2015).
+## 🔎 Key Findings (2014–2018)
+- Revenue grew from **18.4T (2014)** to **21.5T (2018)**, about +17% (~4% CAGR), with a **7.48%** net profit margin on **95.23T** cumulative revenue.
+- **ROE of 10.74%** versus **ROA of 1.99%** shows returns are leverage-driven (assets are about 5.4x equity), while Debt-to-Equity eased from **1.29x to 1.20x**.
+- **Financial Services** drives negative working capital (**-14.87T** in 2018); 5 of 11 sectors are negative, so liquidity should be read per sector.
+- Cumulative operating cash flow of **17.32T** was largely reinvested (investing outflows of **-12.67T**), leaving a net cash change of **+3.49T**.
+- Real Estate and Financial Services lead operating margins; Energy was the only sector with a negative operating margin (-1.8% in 2015).
 
 ---
 
 ## ⚠️ Data Notes
+- **Cumulative cards:** with no year selected, flow metrics (revenue, net income, cash flow) are 5-year totals and balance-sheet metrics (assets, liabilities, debt, equity) are sums of yearly balances. Select a year in the slicer for a single-year view. Ratios are computed as total over total.
 - **ROE chart:** companies with near-zero equity produce extreme ratios, so the Top 10 ROE chart caps ROE at 150% and excludes negative equity.
 - **Financial Services** (banks and insurers) balance sheets are not split into current and non-current items, so liquidity metrics (Current Ratio, Working Capital) should be read per sector, not only in aggregate.
-- Ratios are computed as total over total (not averages of company ratios), and YoY changes for percentage KPIs are shown in percentage points where noted.
+- **Free Cash Flow** is taken as reported in the dataset; it does not exactly equal Operating Cash Flow minus CapEx.
+- **Debt-to-Equity** = Total Debt ÷ Shareholders' Equity.
 
 ---
 
@@ -129,4 +132,5 @@ I worked on this dataset end-to-end: data exploration and Python cleaning (`Fina
 ---
 
 ### 👤 Created By:
+**إبراهيم مصطفى**  
 **Ebrahim Mostafa** — *Junior Data Analyst & BI Analyst* · [LinkedIn](https://www.linkedin.com/in/ebrahim-mostafa-data-analysis/)
